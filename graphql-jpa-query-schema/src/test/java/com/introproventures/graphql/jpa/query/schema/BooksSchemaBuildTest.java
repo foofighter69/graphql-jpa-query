@@ -105,7 +105,7 @@ public class BooksSchemaBuildTest extends AbstractSpringBootTestSupport {
                 .isPresent().get()
                 .extracting(it -> it.getArgument("optional"))
                 .extracting("defaultValue")
-                .containsExactly(Boolean.FALSE);
+                .isEqualTo(Boolean.FALSE);
     }
 
     @Test
@@ -125,7 +125,7 @@ public class BooksSchemaBuildTest extends AbstractSpringBootTestSupport {
                 .isPresent().get()
                 .extracting(it -> it.getArgument("optional"))
                 .extracting("defaultValue")
-                .containsExactly(Boolean.TRUE);
+                .isEqualTo(Boolean.TRUE);
     }
 
     @Test
@@ -146,7 +146,7 @@ public class BooksSchemaBuildTest extends AbstractSpringBootTestSupport {
                 .isInstanceOf(GraphQLList.class)
                 .extracting("wrappedType")
                 .extracting("name")
-                .containsOnly("String");
+                .isEqualTo("String");
     }
 
     @Test
